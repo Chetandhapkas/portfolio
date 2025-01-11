@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Chetan Dhapkas</title>
+    <style>
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --highlight-color: #007bff;
+            --card-background: #f8f9fa;
+            --border-color: #007bff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--card-background);
+            border-bottom: 2px solid var(--border-color);
+            transition: background-color 0.3s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: var(--text-color);
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--highlight-color);
+        }
+
+        .toggle-mode {
+            padding: 5px 10px;
+            border: 2px solid var(--highlight-color);
+            background-color: transparent;
+            color: var(--highlight-color);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .toggle-mode:hover {
+            background-color: var(--highlight-color);
+            color: #ffffff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: var(--card-background);
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .section {
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--card-background);
+            transition: background-color 0.3s ease;
+        }
+
+        .section h3 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--border-color);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--card-background);
+            border-top: 2px solid var(--border-color);
+            transition: background-color 0.3s ease;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .profile-picture img {
+            width: 150px;
+            height: 150px;
+            border-radius: 20%;
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .profile-picture img:hover {
+            transform: scale(1.2);
+        }
+        .certificates img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .certificates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+         
+       
+        /* Light Mode Styles */
+        .light-mode body {
+            background-color: #f0f0f0;
+            color: #000; /* Black text in light mode */
+        }
+
+        .light-mode header {
+            background-color: #ffffff;
+            border-bottom: 2px solid #333;
+        }
+
+        .light-mode nav a {
+            color: #333; /* Dark text in light mode */
+        }
+
+        .light-mode nav a:hover {
+            text-shadow: 0 0 8px #333;
+            color: #000;
+        }
+
+        .light-mode .hero {
+            background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+            color: #000; /* Black text in light mode */
+        }
+
+        .light-mode .section {
+            background-color: #ffffff;
+            border: 1px solid #333;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .card {
+            background-color: #ffffff;
+            color: #000; /* Black text in light mode */
+            border: 1px solid #333;
+        }
+
+        .light-mode .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode footer {
+            background-color: #ffffff;
+            border-top: 2px solid #333;
+        }
+
+        .light-mode footer p {
+            color: #000; /* Black text in light mode */
+        }
+        
+.certificates img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px var(--certificate-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+.certificates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.view-project-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--view-project-color);
+    background-color: var(--view-project-bg);
+    border: 2px solid var(--view-project-border);
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-project-button:hover {
+    background-color: var(--view-project-color);
+    color: #166c86; 
+    box-shadow: 0 0 10px var(--view-project-border);
+}
+
+/* Light Mode Styles */
+.light-mode {
+    --certificate-shadow: rgba(0, 0, 0, 0.2);
+    --view-project-bg: #ffffff;
+    --view-project-color: #007bff;
+    --view-project-border: #007bff;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    --certificate-shadow: rgba(0, 255, 0, 0.5);
+    --view-project-bg: #14ee14;
+    --view-project-color: #0d0d0d;
+    --view-project-border: #00ff00;
+}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chetan Dhapkas</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <button class="toggle-mode" id="toggleMode">Dark Mode</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to My Portfolio</h2>
+        <p>"Where innovation meets creativity. Explore my journey in coding, projects, and achievements."</p>
+    </section>
+    <section id="about" class="section">
+        <h3>About Me</h3>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <!-- Image Container for Zoom -->
+            <div class="profile-picture" style="overflow: hidden; width: 250px; height: 250px; border-radius: 20%;">
+                <img src="IMG20240923180408.jpg" 
+                     alt="Chetan Dhapkas" 
+                     style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+            </div>
+            <div style="flex: 1;">
+               <h2>Chetan Dhapkas</h2>
+                <p>
+                    Helllo, an aspiring software developer and an IT student at Priyadarshini College of Engineering, Nagpur.
+                    My journey in technology is fueled by curiosity and determination. I hold multiple national certifications and have hands-on 
+                    experience in coding, problem-solving, and project development.
+                </p>
+                <p>
+                    My interests span across various domains, including frontend development, cyber security, and innovative software solutions.
+                    In addition to academics, I actively participate in community projects to spread awareness about cyber security and the 
+                    importance of safe digital practices.
+                </p>
+                <p>
+                    Apart from coding, I enjoy exploring the great outdoors, as evidenced by my mountaineering certifications, and I am 
+                    constantly striving to improve myself both personally and professionally.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h3>Skills</h3>
+        <div class="grid">
+            <div class="card">HTML, CSS, JavaScript</div>
+            <div class="card">C Programming</div>
+            <div class="card">Cyber Security Awareness</div>
+            <div class="card">Problem Solving</div>
+            <div class="card">Frontend Development</div>
+        </div>
+        <h3>Certificates</h3>
+        <div class="certificates">
+            <img src="LUEHTMLJAN1251319_page-0001.jpg" alt="Certificate 1">
+            <img src="ethical hacking certificate_page.png" alt="Certificate 2">
+            <img src="Jobaajlearnings-Certificate.jpg" alt="Certificate 3">
+            <img src="Screenshot 2025-01-10 213009.png" alt="Certificate 4">
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h3>Projects</h3>
+        <div class="grid">
+            <div class="card">
+                <h4>Blood Donor & Receiver System</h4>
+                <p><strong>Language:</strong> HTML, CSS, JavaScript</p>
+                <p><strong>Functionality:</strong> Connects blood donors and recipients for seamless communication and management.i make only frontend.</p>
+                <a href="https://github.com/chetandhapkas/blood-donor-receiver-system" target="_blank" class="view-project-button">View Project</a>
+            </div>
+            <div class="card">
+                <h4>Library Management System</h4>
+                <p><strong>Language:</strong> C Programming</p>
+                <p><strong>Functionality:</strong> Manages library records, including book addition, deletion, and user transactions.</p>
+            </div>
+            <div class="card">
+                <h4>Shopping List Processing System</h4>
+                <p><strong>Language:</strong> C++</p>
+                <p><strong>Functionality:</strong> Enables users to add products to a cart, calculate the total price, delete items, and view cart details with names and prices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h3>Contact Me</h3>
+        <p>
+            <strong>Email:</strong> chetandhapkas@example.com<br>
+            <strong>Location:</strong> Nagpur, Maharashtra<br>
+            <strong>LinkedIn:</strong> chetandhapka <br>
+            <strong>contact no:</strong> 9765328630 <br>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Chetan Dhapkas. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const toggleModeButton = document.getElementById('toggleMode');
+        let isDarkMode = false;
+
+        toggleModeButton.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+
+            if (isDarkMode) {
+                document.documentElement.style.setProperty('--background-color', '#0d0d0d');
+                document.documentElement.style.setProperty('--text-color', '#00ff00');
+                document.documentElement.style.setProperty('--highlight-color', '#00ff00');
+                document.documentElement.style.setProperty('--card-background', '#1a1a1a');
+                document.documentElement.style.setProperty('--border-color', '#00ff00');
+                toggleModeButton.textContent = 'Light Mode';
+            } else {
+                document.documentElement.style.setProperty('--background-color', '#ffffff');
+                document.documentElement.style.setProperty('--text-color', '#000000');
+                document.documentElement.style.setProperty('--highlight-color', '#007bff');
+                document.documentElement.style.setProperty('--card-background', '#f8f9fa');
+                document.documentElement.style.setProperty('--border-color', '#007bff');
+                toggleModeButton.textContent = 'Dark Mode';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
